@@ -17,6 +17,15 @@ const Stat = ({label, value}) => {
 }
 
 const Statistics = ({values}) => {
+  if(values[0]+values[1]+values[2] === 0){
+    return (
+      <>
+        <h1>Statistics</h1> 
+        <p>No feedback given</p>
+      </>
+    )
+  }
+
   return (
     <>
       <h1>Statistics</h1>
