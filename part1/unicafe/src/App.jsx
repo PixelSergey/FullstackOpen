@@ -8,11 +8,12 @@ const Button = ({label, value, setter}) => {
   )
 }
 
-const Stat = ({label, value}) => {
+const StatisticLine = ({label, value}) => {
   return (
-    <>
-    <p>{label} {value}</p>
-    </>
+    <tr>
+      <td>{label}</td>
+      <td>{value}</td>
+    </tr>
   )
 }
 
@@ -29,12 +30,16 @@ const Statistics = ({values}) => {
   return (
     <>
       <h1>Statistics</h1>
-      <Stat label={"good"} value={values[0]} />
-      <Stat label={"neutral"} value={values[1]} />
-      <Stat label={"bad"} value={values[2]} />
-      <Stat label={"all"} value={values.reduce((partialSum, a) => partialSum + a, 0)} />
-      <Stat label={"average"} value={(values[0]-values[2])/(values[0]+values[1]+values[2])} />
-      <Stat label={"positive"} value={values[0]/(values[0]+values[1]+values[2])} />
+      <table>
+      <tbody>
+        <StatisticLine label={"good"} value={values[0]} />
+        <StatisticLine label={"neutral"} value={values[1]} />
+        <StatisticLine label={"bad"} value={values[2]} />
+        <StatisticLine label={"all"} value={values.reduce((partialSum, a) => partialSum + a, 0)} />
+        <StatisticLine label={"average"} value={(values[0]-values[2])/(values[0]+values[1]+values[2])} />
+        <StatisticLine label={"positive"} value={values[0]/(values[0]+values[1]+values[2])} />
+      </tbody>
+      </table>
     </>
   )
 }
